@@ -11,6 +11,8 @@ import { SigninComponent } from './main/login/signin/signin.component';
 import { AboutComponent } from './main/about/about.component';
 import {NgxHideOnScrollModule} from "ngx-hide-on-scroll";
 import {AppRoutingModule} from "./app-routing.module";
+import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import {AppRoutingModule} from "./app-routing.module";
     SigninComponent,
     AboutComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    NgxHideOnScrollModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        NgxHideOnScrollModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
