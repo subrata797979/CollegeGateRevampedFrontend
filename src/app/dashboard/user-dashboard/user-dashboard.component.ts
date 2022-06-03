@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../service/user.service";
 import {Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
+import {CollegeService} from "../../service/college.service";
 
 @Component({
   selector: 'app-user-dashboard',
@@ -12,7 +12,7 @@ export class UserDashboardComponent implements OnInit {
 
   subjectForm: any;
 
-  constructor(private service: UserService, private router: Router) { }
+  constructor(private service: CollegeService, private router: Router) { }
 
   ngOnInit(): void {
     this.setsubjectForm();
@@ -30,7 +30,14 @@ export class UserDashboardComponent implements OnInit {
     const data = this.subjectForm.value;
     const dataJson = JSON.stringify(data)
     console.log(dataJson)
-    this.service.checkCredentials(dataJson);
+    // this.service.getCollegeList(dataJson).subscribe((data) => {
+    //   if(data.length==0) console.log("No Data Found");
+    // });
+    this.service.getCollegeList(dataJson);
   }
 
+  logout() {
+    localStorage.clear();
+    this.router.navigate(["/login"]);
+  }
 }

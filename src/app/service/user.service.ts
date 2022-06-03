@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  API_URL = environment.apiUrl;
 
   headers = { 'content-type': 'application/json'}
 
@@ -13,7 +15,7 @@ export class UserService {
 
   createUser(data:any) {
     this.http
-      .post<any>('http://localhost:8000/api/users', data, {'headers':this.headers})
+      .post<any>(this.API_URL+'/users', data, {'headers':this.headers})
       .subscribe({
         next: (response) => console.log(response),
         error: (error) => console.log(error),
@@ -22,7 +24,7 @@ export class UserService {
 
   checkCredentials(data:any) {
     this.http
-      .post<any>('http://localhost:8000/api/users/checkByEmail', data, {'headers':this.headers})
+      .post<any>(this.API_URL+'/users/checkByEmail', data, {'headers':this.headers})
       .subscribe((data) => {
         if(data!=null) {
           // route to dashboard else show error after this function in call
