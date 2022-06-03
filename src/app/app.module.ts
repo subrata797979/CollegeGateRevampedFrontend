@@ -15,8 +15,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { UserDashboardComponent } from './dashboard/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './dashboard/admin-dashboard/admin-dashboard.component';
-// import { UserDashboardComponent } from './dashboard/user-dashboard/user-dashboard.component';
-// import { AdminDashboardComponent } from './dashboard/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +27,6 @@ import { AdminDashboardComponent } from './dashboard/admin-dashboard/admin-dashb
     AboutComponent,
     UserDashboardComponent,
     AdminDashboardComponent,
-    // UserDashboardComponent,
-    // AdminDashboardComponent
   ],
     imports: [
         BrowserModule,
