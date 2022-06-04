@@ -11,6 +11,7 @@ import {CollegeService} from "../../service/college.service";
 export class UserDashboardComponent implements OnInit {
 
   subjectForm: any;
+  colleges: any;
 
   constructor(private service: CollegeService, private router: Router) { }
 
@@ -31,8 +32,12 @@ export class UserDashboardComponent implements OnInit {
     const dataJson = JSON.stringify(data)
     console.log(dataJson)
     this.service.getCollegeList(dataJson).subscribe((res) => {
-      console.log(res.data);
+      this.colleges = res.data;
     });
+    setTimeout(() => {
+      console.log(this.colleges)
+    }, 5000);
+
     // this.service.getCollegeList(dataJson);
   }
 
