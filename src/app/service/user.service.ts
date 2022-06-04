@@ -35,11 +35,6 @@ export class UserService {
           console.log("Not Found");
         }
       });
-      // .subscribe({
-      //   next: (response) => console.log(response),
-      //   error: (error) => console.log(error),
-      // });
-
   }
 }
 

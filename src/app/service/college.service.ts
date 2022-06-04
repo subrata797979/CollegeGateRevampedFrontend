@@ -15,10 +15,11 @@ export class CollegeService {
   getCollegeList(dataJson: string) {
     const model: Subject<any> = new Subject<any>();
     this.http.post(this.API_URL + "/cs/searchByMarks",dataJson,{'headers':this.headers}).subscribe((res) => {
-      // model.next({ data: res });
-      console.log(res);
+      // console.log(res);
+      model.next({data:res})
     });
-    // return model;
+    console.log(model)
+    return model
   }
 
 }

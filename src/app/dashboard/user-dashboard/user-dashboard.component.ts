@@ -30,10 +30,10 @@ export class UserDashboardComponent implements OnInit {
     const data = this.subjectForm.value;
     const dataJson = JSON.stringify(data)
     console.log(dataJson)
-    // this.service.getCollegeList(dataJson).subscribe((data) => {
-    //   if(data.length==0) console.log("No Data Found");
-    // });
-    this.service.getCollegeList(dataJson);
+    this.service.getCollegeList(dataJson).subscribe((res) => {
+      console.log(res.data);
+    });
+    // this.service.getCollegeList(dataJson);
   }
 
   logout() {
